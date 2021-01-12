@@ -1,0 +1,33 @@
+{{ header }}
+<style>
+    .tiny-logo {
+        width: 400px;
+        height: auto;
+        margin-top: 50px;
+    }
+    .logo {
+        width: 200px;
+        height: auto;
+    }
+    .logo.twig {
+        width: auto;
+        height: 150px;
+    }
+</style>
+<div id="content">
+
+    <div class="d-flex justify-content-center">
+        <img src="images/rocket-monsters.png" alt="Tiny MVC" class="tiny-logo">
+    </div>
+    <h1 class="text-center"><i class="fa fa-code"></i> {{ text_heading }}</h1>
+    <p class="text-center">{{ text_slogan }}</p>
+
+    <div class="d-flex justify-content-around align-items-center">
+        <img src="images/logos/php.png" alt="PHP" class="logo">
+        <img src="images/logos/composer.png" alt="Swift Mailer" class="logo">
+        <img src="images/logos/doctrine.png" alt="Doctrine ORM" class="logo">
+        <img src="images/logos/twig.png" alt="Twig" class="logo twig">
+        <img src="images/logos/logo-swift-mailer.png" alt="Swift Mailer" class="logo">
+    </div>
+</div>
+{{ footer }}

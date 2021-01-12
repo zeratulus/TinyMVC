@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    {% if robots %}
+        <meta name="robots" content="{{ robots }}" />
+    {% endif %}
+{#    <base href="{{ base }}" />#}
+    {% if description %}
+        <meta name="description" content="{{ description }}" />
+    {% endif %}
+    {% if keywords %}
+        <meta name="keywords" content="{{ keywords }}" />
+    {% endif %}
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ og_url }}" />
+    {% if og_image %}
+        <meta property="og:image" content="{{ og_image }}" />
+    {% else %}
+        <meta property="og:image" content="{{ logo }}" />
+    {% endif %}
+    <meta property="og:site_name" content="{{ name }}" />
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    {% for style in styles %}
+        <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+    {% endfor %}
+
+    {% for script in scripts %}
+        <script src="{{ script }}" type="text/javascript"></script>
+    {% endfor %}
+    {% for link in links %}
+        <link href="{{ link.href }}" rel="{{ link.rel }}" />
+    {% endfor %}
+    {% for analytic in analytics %}
+        {{ analytic }}
+    {% endfor %}
+    {% if debug_bar %}
+        {{ debug_bar.renderHead() }}
+    {% endif %}
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
+        <a class="navbar-brand" href="{{ home }}"><i class="fa fa-code"></i> {{ text_heading }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#devMenuDropdown" aria-controls="devMenuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="devMenuDropdown">
+            <ul class="navbar-nav">
+                {% if is_admin %}
+                <li class="nav-item"><a class="nav-link" href="{{ href_dashboard }}"><i class="fa fa-rebel"></i> {{ text_dashboard }}</a></li>
+                {% endif %}
+                <li class="nav-item"><a class="nav-link" href="{{ href_companies }}">{{ text_catalog }}</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="devMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        devMenu
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="devMenu">
+                        {{ menu }}
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            {% if is_logged %}
+                <li class="nav-item"><a class="nav-link" href="{{ href_account }}"><i class="fa fa-user-o"></i> {{ text_account }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ href_logout }}"><i class="fa fa-power-off"></i> {{ text_logout }}</a></li>
+            {% else %}
+                <li class="nav-item"><a class="nav-link" href="{{ href_login }}"><i class="fa fa-user-o"></i> {{ text_login }}</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+<div class="navbar-wrapper"></div>

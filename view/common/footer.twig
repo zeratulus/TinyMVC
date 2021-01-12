@@ -1,0 +1,19 @@
+{% if debug_bar_renderer %}
+    {{ debug_bar_renderer.render() }}
+{% endif %}
+<script>
+	$(document).ready(function () {
+		tinymceOptions.language = 'ru';
+		tinymce.init(tinymceOptions);
+	});
+</script>
+{% for script in scripts %}
+	<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<footer>
+	<div class="bottom">
+		{{ years }} - {{ text_heading }}
+	</div>
+</footer>
+</body>
+</html>

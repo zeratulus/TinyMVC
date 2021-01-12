@@ -1,0 +1,12 @@
+.vscode/
+.idea/
+.git/
+vendor/
+dev/
+config/config.php
+config/*
+storage/cache/
+controller/dev/*.*
+view/dev/*.*
+composer.lock
+debug.log
