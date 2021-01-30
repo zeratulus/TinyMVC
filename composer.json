@@ -1,11 +1,11 @@
 {
   "require": {
-    "maximebf/debugbar": "^1.16",
-    "twig/twig": "^3.0",
-    "doctrine/orm": "^2.7",
-    "symfony/yaml": "^5.1",
-    "monolog/monolog": "^2.1",
-    "swiftmailer/swiftmailer": "^6.0"
+    "maximebf/debugbar": "^1.16.5",
+    "twig/twig": "^3.2.1",
+    "doctrine/orm": "^2.8.1",
+    "symfony/yaml": "^5.2.2",
+    "monolog/monolog": "^2.2.0",
+    "swiftmailer/swiftmailer": "^6.2.5"
   },
   "autoload": {
     "psr-0": {"": "src/"}
