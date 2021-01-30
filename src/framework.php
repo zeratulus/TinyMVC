@@ -17,6 +17,9 @@ $registry->set('remote_address', new \Framework\RemoteAddress());
 $registry->set('loader', new \Framework\Loader($registry));
 $registry->set('language', new \Framework\Language());
 
+$os_checker = new \Framework\OSChecker();
+$registry->set('os_checker', $os_checker);
+
 //Debug Bar
 $debug_bar = null;
 if (isFrameworkDebug()) {
@@ -26,7 +29,12 @@ if (isFrameworkDebug()) {
 
 //Url
 $domain = $request->server['HTTP_HOST'];
-$doc_uri = isset($request->server['DOCUMENT_URI']) ? $request->server['DOCUMENT_URI'] : '';
+if (($os_checker == $os_checker::OS_WIN_NT) || (($os_checker->getOS() == $os_checker::OS_WIN))) {
+    $doc_uri = isset($request->server['DOCUMENT_URI']) ? $request->server['DOCUMENT_URI'] : '';
+} else {
+    $doc_uri = isset($request->server['DOCUMENT_URI']) ? $request->server['DOCUMENT_URI'] : $request->server['REQUEST_URI'];
+}
+
 if (!empty($doc_uri)) {
 	$url_parts = explode('/', $doc_uri);
 	foreach ($url_parts as $item) {

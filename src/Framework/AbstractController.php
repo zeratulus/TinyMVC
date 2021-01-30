@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Framework;
-
 
 use Doctrine\ORM\EntityManager;
 
@@ -90,6 +88,11 @@ class AbstractController extends Controller
 	{
 		return $this->registry->get('url');
 	}
+
+	public function getOsChecker(): \Framework\OSChecker
+    {
+        return $this->registry->get('os_checker');
+    }
 
 	public function isLogged()
 	{
