@@ -1,7 +1,7 @@
 ##Features:
 0. For Database collation use UTF8MB4.
 1. Basic code standard: https://www.php-fig.org/psr/psr-1/
-2. Autoloading implemented by composer PSR-0
+2. Autoloading implemented by composer PSR-4
 3. Minimal Hierarchical Model View Controller Framework
 4. Routing by GET parameter: index.php?route=common/home
 5. define('DEV', true) for development environment
